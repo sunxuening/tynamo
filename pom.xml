@@ -7,7 +7,7 @@
 	<groupId>org.trailsframework</groupId>
 	<artifactId>trails-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>2.0.1-SNAPSHOT</version>
+	<version>2.0.1</version>
 
 	<properties>
 		<tapestry-release-version>5.0.18</tapestry-release-version>
@@ -55,10 +55,7 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
-	<issueManagement>
-		<system>jira</system>
-		<url>http://jira.codehaus.org/browse/TRAILS</url>
-	</issueManagement>
+
 	<mailingLists>
 		<mailingList>
 			<name>Trails User List</name>
@@ -79,9 +76,9 @@
 		</mailingList>
 	</mailingLists>
 	<scm>
-		<connection>scm:svn:http://svn.codehaus.org/trails/tags/trails-parent-2.0.0</connection>
-		<developerConnection>scm:svn:https://svn.codehaus.org/trails/tags/trails-parent-2.0.0</developerConnection>
-		<url>http://svn.trails.codehaus.org/trails/tags/trails-parent-2.0.0</url>
+		<connection>scm:svn:http://svn.codehaus.org/trails/tags/trails-parent-2.0.1</connection>
+		<developerConnection>scm:svn:https://svn.codehaus.org/trails/tags/trails-parent-2.0.1</developerConnection>
+		<url>http://svn.trails.codehaus.org/trails/tags/trails-parent-2.0.1</url>
 	</scm>
 
 	<prerequisites>
@@ -89,11 +86,6 @@
 	</prerequisites>
 
 	<repositories>
-		<repository>
-			<id>trails.codehaus.org</id>
-			<name>Trails Repository</name>
-			<url>http://trails.codehaus.org/repository</url>
-		</repository>
 		<repository>
 			<id>apache.snapshots</id>
 			<url>http://people.apache.org/repo/m2-snapshot-repository</url>
@@ -210,6 +202,11 @@
 			<url>dav:https://dav.codehaus.org/snapshots.repository/trails/</url>
 		</snapshotRepository>
 	</distributionManagement>
+	
+	<issueManagement>
+		<system>JIRA</system>
+		<url>http://jira.codehaus.org/secure/project/BrowseProject.jspa?pid=11342</url>
+	</issueManagement>
 
 	<build>
 		<pluginManagement>
@@ -326,6 +323,15 @@
 				<artifactId>maven-site-plugin</artifactId>
 				<version>2.0-beta-7</version>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<!-- By default, do not deploy site, especially for the parent itself-->
+					<goals>deploy</goals>
+				</configuration>
+			</plugin>
+			
 		</plugins>
 	</build>
 
